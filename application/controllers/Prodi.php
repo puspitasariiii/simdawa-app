@@ -6,7 +6,6 @@ class Prodi extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->library('pdf');
         $this->load->model('ProdiModel');
     }
 
@@ -55,11 +54,5 @@ class Prodi extends CI_Controller
             $this->ProdiModel->delete_prodi($id);
             redirect('prodi');
         }
-    }
-
-    public function cetak()
-    {
-        $data['prodi'] = $this->ProdiModel->get_prodi();
-        $this->load->view('prodi/prodi_print', $data);
     }
 }
