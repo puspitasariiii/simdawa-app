@@ -3,20 +3,22 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Prodi extends CI_Controller
 {
-    public function __construct()
+
+    function __construct()
     {
         parent::__construct();
         $this->load->model('ProdiModel');
     }
 
     public function index()
-    {
-        $data['title'] = "Halaman Daftar Program Studi | SIMDAWA-APP";
-        $data['prodi'] = $this->ProdiModel->get_prodi();
-        $this->load->view('template/header', $data);
-        $this->load->view('template/sidebar');
-        $this->load->view('prodi/prodi_read', $data);
-        $this->load->view('template/footer');
+    { {
+            $data['title'] = "Halaman Data Program Studi | SIMDAWA-APP";
+            $data['prodi'] = $this->ProdiModel->get_prodi();
+            $this->load->view('template/header', $data);
+            $this->load->view('template/sidebar');
+            $this->load->view('prodi/prodi_read', $data);
+            $this->load->view('template/footer');
+        }
     }
 
     public function tambah()
@@ -39,7 +41,7 @@ class Prodi extends CI_Controller
             $this->ProdiModel->update_prodi();
             redirect('prodi');
         } else {
-            $data['title'] = "Perbaharui Data Program Studi | SIMDAWA-APP";
+            $data['title'] = "Perbaharui Data Prodi Beasiswa | SIMDAWA-APP";
             $data['prodi'] = $this->ProdiModel->get_prodi_byid($id);
             $this->load->view('template/header', $data);
             $this->load->view('template/sidebar');
